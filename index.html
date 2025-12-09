@@ -48,12 +48,12 @@
     header {
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      gap: 16px;
+      justify-content: flex-start;
+      gap: 14px;
       margin-bottom: 32px;
     }
 
-    /* Logo très simple en bleu */
+    /* Logo simplifié en bleu, recréé en CSS */
     .brand {
       display: flex;
       align-items: center;
@@ -64,7 +64,7 @@
       width: 40px;
       height: 40px;
       border-radius: 12px;
-      border: 2px solid rgba(37, 99, 235, 0.25);
+      border: 2px solid #bfdbfe;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -98,25 +98,10 @@
     }
 
     .brand-text-title {
-      font-weight: 600;
-      font-size: 1.05rem;
-      letter-spacing: 0.04em;
+      font-weight: 700;
+      font-size: 1.1rem;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
-    }
-
-    .brand-text-sub {
-      font-size: 0.8rem;
-      color: var(--muted);
-    }
-
-    .tagline {
-      font-size: 0.78rem;
-      color: var(--muted);
-      padding: 4px 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.4);
-      background: rgba(255, 255, 255, 0.9);
-      white-space: nowrap;
     }
 
     /* Bloc principal */
@@ -126,15 +111,6 @@
       box-shadow: var(--shadow-soft);
       padding: 24px 22px 26px;
       border: 1px solid rgba(148, 163, 184, 0.2);
-    }
-
-    .hello {
-      font-size: 0.82rem;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: var(--accent);
-      font-weight: 600;
-      margin-bottom: 6px;
     }
 
     .title {
@@ -240,17 +216,12 @@
           <div class="logo-heart"></div>
         </div>
         <div class="brand-text">
-          <div class="brand-text-title">A Part Ça</div>
-          <div class="brand-text-sub">Association d'amour & d'entraide</div>
+          <div class="brand-text-title">A PART ÇA</div>
         </div>
-      </div>
-      <div class="tagline">
-        Choisir l'amour plutôt que la haine
       </div>
     </header>
 
     <section class="card" aria-label="Présentation de l'association A Part Ça">
-      <div class="hello">Hello (Again)</div>
       <h1 class="title">Nous faisons le choix de l’amour.</h1>
       <p class="subtitle">
         A Part Ça est une association qui s’engage pour l’amour, l’entraide et la dignité humaine,

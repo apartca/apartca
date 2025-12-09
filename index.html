@@ -12,24 +12,20 @@
   <style>
     :root {
       --bg: #f3f7fb;
-      --primary: #2563eb;        /* bleu principal */
-      --primary-dark: #1d4ed8;   /* bleu plus profond */
-      --accent: #0ea5e9;         /* bleu clair, touche légère */
-      --text: #0f172a;           /* bleu-ardoise foncé pour le texte */
-      --muted: #64748b;          /* gris-bleu pour sous-texte */
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --accent: #0ea5e9;
+      --text: #0f172a;
+      --muted: #64748b;
       --card-bg: #ffffff;
       --radius: 18px;
       --shadow-soft: 0 18px 40px rgba(15, 23, 42, 0.08);
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
-      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-family: "Inter", sans-serif;
       background: var(--bg);
       color: var(--text);
       line-height: 1.6;
@@ -45,78 +41,34 @@
       padding: 32px 16px 40px;
     }
 
-    header {
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
-      gap: 14px;
-      margin-bottom: 32px;
-    }
-
-    /* Logo simplifié en bleu, recréé en CSS */
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .logo-mark {
-      width: 40px;
-      height: 40px;
-      border-radius: 12px;
-      border: 2px solid #bfdbfe;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: radial-gradient(circle at 30% 20%, #e0f2fe, #dbeafe);
-    }
-
-    .logo-heart {
-      width: 16px;
-      height: 16px;
-      position: relative;
-      transform: rotate(-45deg);
-    }
-
-    .logo-heart::before,
-    .logo-heart::after {
-      content: "";
-      position: absolute;
-      width: 52%;
-      height: 80%;
-      background: #2563eb;
-      border-radius: 999px 999px 0 0;
-      top: 0;
-    }
-
-    .logo-heart::before {
-      left: 0;
-    }
-
-    .logo-heart::after {
-      right: 0;
-    }
-
-    .brand-text-title {
-      font-weight: 700;
-      font-size: 1.1rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
     /* Bloc principal */
     .card {
       background: var(--card-bg);
       border-radius: var(--radius);
       box-shadow: var(--shadow-soft);
-      padding: 24px 22px 26px;
+      padding: 32px 28px 30px;
       border: 1px solid rgba(148, 163, 184, 0.2);
+    }
+
+    /* Logo ajouté dans le carré blanc */
+    .logo-container {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      margin-bottom: 24px;
+    }
+
+    .logo-container img {
+      width: 52px;
+      height: 52px;
+      object-fit: contain;
     }
 
     .title {
       font-size: clamp(1.8rem, 2.2vw + 1.2rem, 2.3rem);
       font-weight: 700;
       margin-bottom: 10px;
+      text-align: left;
     }
 
     .subtitle {
@@ -133,27 +85,15 @@
       border-radius: 10px;
     }
 
-    .quote-text {
-      font-size: 0.95rem;
-      font-weight: 500;
-      margin-bottom: 4px;
-    }
-
-    .quote-author {
-      font-size: 0.9rem;
-      color: var(--muted);
-    }
+    .quote-text { font-size: 0.95rem; font-weight: 500; margin-bottom: 4px; }
+    .quote-author { font-size: 0.9rem; color: var(--muted); }
 
     .content-text p {
       margin-bottom: 12px;
       font-size: 0.96rem;
     }
 
-    .content-text p:last-child {
-      margin-bottom: 0;
-    }
-
-    /* Bouton : ouvre un mail vers hello@apartca.org */
+    /* Bouton mailto */
     .cta {
       margin-top: 22px;
       display: flex;
@@ -168,7 +108,6 @@
       justify-content: center;
       padding: 10px 18px;
       border-radius: 999px;
-      border: none;
       background: linear-gradient(135deg, var(--primary), var(--primary-dark));
       color: #ffffff;
       font-weight: 600;
@@ -183,11 +122,6 @@
       transform: translateY(-1px);
       box-shadow: 0 18px 36px rgba(37, 99, 235, 0.55);
       filter: brightness(1.03);
-    }
-
-    .btn-primary:active {
-      transform: translateY(0);
-      box-shadow: 0 8px 20px rgba(37, 99, 235, 0.4);
     }
 
     .cta-note {
@@ -210,18 +144,14 @@
 </head>
 <body>
   <main>
-    <header>
-      <div class="brand">
-        <div class="logo-mark" aria-hidden="true">
-          <div class="logo-heart"></div>
-        </div>
-        <div class="brand-text">
-          <div class="brand-text-title">A PART ÇA</div>
-        </div>
-      </div>
-    </header>
 
-    <section class="card" aria-label="Présentation de l'association A Part Ça">
+    <section class="card">
+      
+      <!-- VOTRE LOGO PNG ICI -->
+      <div class="logo-container">
+        <img src="logo.png" alt="Logo A Part Ça">
+      </div>
+
       <h1 class="title">Nous faisons le choix de l’amour.</h1>
       <p class="subtitle">
         A Part Ça est une association qui s’engage pour l’amour, l’entraide et la dignité humaine,
@@ -259,7 +189,6 @@
       </div>
 
       <div class="cta">
-        <!-- Bouton cliquable qui ouvre un mail vers hello@apartca.org -->
         <a class="btn-primary" href="mailto:hello@apartca.org">
           Écrire à A Part Ça
         </a>
@@ -275,7 +204,6 @@
   </footer>
 
   <script>
-    // Met automatiquement l'année courante dans le footer
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 </body>

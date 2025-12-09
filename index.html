@@ -7,18 +7,19 @@
   <meta name="description" content="A Part Ça est une association qui choisit l'amour, l'entraide et la dignité humaine pour construire une société plus juste et solidaire." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
   <style>
     :root {
-      --primary: #e63946;   /* rouge chaleureux, amour, courage */
-      --primary-soft: #ffedf0;
-      --dark: #1d3557;      /* bleu profond, confiance, stabilité */
-      --bg: #fff7f5;        /* fond très doux */
-      --text: #1a1a1a;
-      --muted: #6c6c6c;
+      --bg: #f3f7fb;
+      --primary: #2563eb;        /* bleu principal */
+      --primary-dark: #1d4ed8;   /* bleu plus profond */
+      --accent: #0ea5e9;         /* bleu clair, touche légère */
+      --text: #0f172a;           /* bleu-ardoise foncé pour le texte */
+      --muted: #64748b;          /* gris-bleu pour sous-texte */
       --card-bg: #ffffff;
-      --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.08);
-      --radius-xl: 24px;
+      --radius: 18px;
+      --shadow-soft: 0 18px 40px rgba(15, 23, 42, 0.08);
     }
 
     * {
@@ -28,8 +29,8 @@
     }
 
     body {
-      font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top left, #ffe3e8, var(--bg));
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
       color: var(--text);
       line-height: 1.6;
       min-height: 100vh;
@@ -39,7 +40,7 @@
 
     main {
       flex: 1;
-      max-width: 1080px;
+      max-width: 760px;
       margin: 0 auto;
       padding: 32px 16px 40px;
     }
@@ -52,38 +53,38 @@
       margin-bottom: 32px;
     }
 
+    /* Logo très simple en bleu */
     .brand {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
     }
 
     .logo-mark {
-      width: 42px;
-      height: 42px;
-      border-radius: 50%;
-      background: radial-gradient(circle at 30% 20%, #ffb3c1, var(--primary));
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      border: 2px solid rgba(37, 99, 235, 0.25);
       display: flex;
       align-items: center;
       justify-content: center;
-      position: relative;
-      box-shadow: 0 12px 28px rgba(230, 57, 70, 0.4);
+      background: radial-gradient(circle at 30% 20%, #e0f2fe, #dbeafe);
     }
 
     .logo-heart {
-      width: 18px;
-      height: 18px;
+      width: 16px;
+      height: 16px;
       position: relative;
-      transform: translateY(2px) rotate(-45deg);
+      transform: rotate(-45deg);
     }
 
     .logo-heart::before,
     .logo-heart::after {
       content: "";
       position: absolute;
-      width: 50%;
+      width: 52%;
       height: 80%;
-      background: #fff;
+      background: #2563eb;
       border-radius: 999px 999px 0 0;
       top: 0;
     }
@@ -96,22 +97,11 @@
       right: 0;
     }
 
-    .logo-bridge {
-      position: absolute;
-      bottom: 10px;
-      left: 20%;
-      right: 20%;
-      height: 3px;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.9);
-    }
-
     .brand-text-title {
-      font-weight: 700;
-      font-size: 1.15rem;
-      letter-spacing: 0.06em;
+      font-weight: 600;
+      font-size: 1.05rem;
+      letter-spacing: 0.04em;
       text-transform: uppercase;
-      color: var(--dark);
     }
 
     .brand-text-sub {
@@ -120,115 +110,79 @@
     }
 
     .tagline {
+      font-size: 0.78rem;
+      color: var(--muted);
       padding: 4px 10px;
       border-radius: 999px;
-      background: rgba(255, 255, 255, 0.7);
-      font-size: 0.76rem;
-      color: var(--primary);
-      border: 1px solid rgba(230, 57, 70, 0.2);
-      font-weight: 500;
-    }
-
-    /* Hero section */
-    .hero {
-      display: grid;
-      grid-template-columns: minmax(0, 3fr);
-      gap: 24px;
-      margin-bottom: 32px;
-    }
-
-    .hero-title {
-      font-size: clamp(2.1rem, 3.2vw + 1rem, 3rem);
-      font-weight: 700;
-      color: var(--dark);
-      margin-bottom: 12px;
-    }
-
-    .hero-highlight {
-      display: inline-block;
-      padding: 4px 12px;
-      border-radius: 999px;
-      background: var(--primary-soft);
-      color: var(--primary);
-      font-size: 0.9rem;
-      font-weight: 600;
-      margin-bottom: 12px;
-    }
-
-    .hero-intro {
-      font-size: 1rem;
-      color: var(--muted);
-      max-width: 520px;
-    }
-
-    /* Quote */
-    .quote-block {
-      margin: 24px 0 32px;
-      padding: 20px 22px;
-      border-radius: var(--radius-xl);
+      border: 1px solid rgba(148, 163, 184, 0.4);
       background: rgba(255, 255, 255, 0.9);
-      border: 1px solid rgba(29, 53, 87, 0.08);
-      box-shadow: var(--shadow-soft);
-      position: relative;
-      overflow: hidden;
+      white-space: nowrap;
     }
 
-    .quote-block::before {
-      content: "“";
-      position: absolute;
-      font-size: 82px;
-      line-height: 1;
-      left: 12px;
-      top: -32px;
-      color: rgba(230, 57, 70, 0.15);
-      pointer-events: none;
+    /* Bloc principal */
+    .card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-soft);
+      padding: 24px 22px 26px;
+      border: 1px solid rgba(148, 163, 184, 0.2);
+    }
+
+    .hello {
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .title {
+      font-size: clamp(1.8rem, 2.2vw + 1.2rem, 2.3rem);
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .subtitle {
+      font-size: 0.98rem;
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    .quote-block {
+      margin-bottom: 20px;
+      padding: 14px 16px;
+      border-left: 3px solid var(--primary);
+      background: #eff6ff;
+      border-radius: 10px;
     }
 
     .quote-text {
-      font-size: 1rem;
+      font-size: 0.95rem;
       font-weight: 500;
-      color: var(--dark);
-      margin-bottom: 8px;
-      padding-left: 24px;
+      margin-bottom: 4px;
     }
 
     .quote-author {
       font-size: 0.9rem;
       color: var(--muted);
-      padding-left: 24px;
-    }
-
-    /* Content card */
-    .content-card {
-      background: var(--card-bg);
-      border-radius: var(--radius-xl);
-      box-shadow: var(--shadow-soft);
-      padding: 24px 22px;
-      border: 1px solid rgba(29, 53, 87, 0.08);
-    }
-
-    .content-title {
-      font-size: 1.15rem;
-      font-weight: 600;
-      color: var(--dark);
-      margin-bottom: 12px;
     }
 
     .content-text p {
       margin-bottom: 12px;
-      font-size: 0.98rem;
+      font-size: 0.96rem;
     }
 
     .content-text p:last-child {
       margin-bottom: 0;
     }
 
-    /* Call to action */
+    /* Bouton : ouvre un mail vers hello@apartca.org */
     .cta {
-      margin-top: 24px;
+      margin-top: 22px;
       display: flex;
       flex-wrap: wrap;
-      gap: 12px;
+      gap: 10px;
       align-items: center;
     }
 
@@ -236,33 +190,38 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 10px 20px;
+      padding: 10px 18px;
       border-radius: 999px;
       border: none;
-      background: linear-gradient(135deg, var(--primary), #ff7b8a);
-      color: #fff;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: #ffffff;
       font-weight: 600;
       font-size: 0.95rem;
-      cursor: pointer;
       text-decoration: none;
-      box-shadow: 0 12px 30px rgba(230, 57, 70, 0.5);
-      transition: transform 0.1s ease, box-shadow 0.1s ease, filter 0.1s ease;
+      cursor: pointer;
+      transition: transform 0.12s ease, box-shadow 0.12s ease, filter 0.12s ease;
+      box-shadow: 0 14px 28px rgba(37, 99, 235, 0.45);
     }
 
     .btn-primary:hover {
       transform: translateY(-1px);
-      box-shadow: 0 18px 40px rgba(230, 57, 70, 0.55);
+      box-shadow: 0 18px 36px rgba(37, 99, 235, 0.55);
       filter: brightness(1.03);
     }
 
-    .btn-secondary {
-      font-size: 0.9rem;
+    .btn-primary:active {
+      transform: translateY(0);
+      box-shadow: 0 8px 20px rgba(37, 99, 235, 0.4);
+    }
+
+    .cta-note {
+      font-size: 0.85rem;
       color: var(--muted);
     }
 
-    .btn-secondary span {
-      font-weight: 600;
-      color: var(--primary);
+    .cta-note span {
+      font-weight: 500;
+      color: var(--primary-dark);
     }
 
     footer {
@@ -270,27 +229,6 @@
       text-align: center;
       font-size: 0.8rem;
       color: var(--muted);
-    }
-
-    footer a {
-      color: var(--primary);
-      text-decoration: none;
-      font-weight: 500;
-    }
-
-    footer a:hover {
-      text-decoration: underline;
-    }
-
-    @media (min-width: 768px) {
-      .hero {
-        grid-template-columns: minmax(0, 3fr) minmax(0, 2.4fr);
-        align-items: center;
-      }
-
-      .quote-block {
-        margin: 0;
-      }
     }
   </style>
 </head>
@@ -300,45 +238,32 @@
       <div class="brand">
         <div class="logo-mark" aria-hidden="true">
           <div class="logo-heart"></div>
-          <div class="logo-bridge"></div>
         </div>
         <div class="brand-text">
           <div class="brand-text-title">A Part Ça</div>
-          <div class="brand-text-sub">Choisir l'amour, alléger le fardeau</div>
+          <div class="brand-text-sub">Association d'amour & d'entraide</div>
         </div>
       </div>
       <div class="tagline">
-        Association d'amour, d'entraide et de dignité
+        Choisir l'amour plutôt que la haine
       </div>
     </header>
 
-    <section class="hero">
-      <div>
-        <div class="hero-highlight">Hello (Again)</div>
-        <h1 class="hero-title">Choisir l’amour plutôt que la haine.</h1>
-        <p class="hero-intro">
-          A Part Ça est une association qui fait le pari de l’amour, de la solidarité
-          et de la dignité humaine, pour transformer nos relations et nos quartiers.
-        </p>
+    <section class="card" aria-label="Présentation de l'association A Part Ça">
+      <div class="hello">Hello (Again)</div>
+      <h1 class="title">Nous faisons le choix de l’amour.</h1>
+      <p class="subtitle">
+        A Part Ça est une association qui s’engage pour l’amour, l’entraide et la dignité humaine,
+        afin d’alléger le fardeau que la haine fait peser sur nos vies.
+      </p>
 
-        <div class="cta">
-          <a href="#apropos" class="btn-primary">Découvrir notre vision</a>
-          <div class="btn-secondary">
-            ou <span>nous rejoindre</span> prochainement
-          </div>
-        </div>
-      </div>
-
-      <aside class="quote-block">
+      <div class="quote-block">
         <p class="quote-text">
           « J'ai décidé d'opter pour l'amour. La haine est un fardeau trop lourd à porter. »
         </p>
         <p class="quote-author">Martin Luther King</p>
-      </aside>
-    </section>
+      </div>
 
-    <section id="apropos" class="content-card" aria-label="À propos de l'association A Part Ça">
-      <h2 class="content-title">A Part Ça, ce que nous portons</h2>
       <div class="content-text">
         <p>
           Au sein d’A Part Ça, nous avons fait le choix de suivre une voie claire :
@@ -360,6 +285,16 @@
           nos liens, et nous construisons, avec toutes celles et ceux qui nous rejoignent,
           une communauté plus juste, plus solidaire et plus lumineuse.
         </p>
+      </div>
+
+      <div class="cta">
+        <!-- Bouton cliquable qui ouvre un mail vers hello@apartca.org -->
+        <a class="btn-primary" href="mailto:hello@apartca.org">
+          Écrire à A Part Ça
+        </a>
+        <div class="cta-note">
+          ou gardez simplement cette phrase en tête&nbsp;: <span>l’amour allège le fardeau</span>.
+        </div>
       </div>
     </section>
   </main>

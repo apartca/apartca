@@ -1,6 +1,6 @@
-# DNS for AI Discovery (DNS-AID) Configuration Guide
+## DNS for AI Discovery (DNS-AID) Configuration Guide
 
-## Overview
+### Overview
 
 This guide explains the DNS-AID implementation for **apartca.org**. DNS-AID enables AI agents to discover your domain's capabilities and contact points through DNS records, following [draft-mozleywilliams-dnsop-dnsaid](https://datatracker.ietf.org/doc/draft-mozleywilliams-dnsop-dnsaid/) and [RFC 9460](https://www.rfc-editor.org/rfc/rfc9460) (SVCB/HTTPS RRs).
 
@@ -19,37 +19,55 @@ DNS-AID (DNS for AI Discovery) is a mechanism that allows organizations to publi
 2. Select **apartca.org** domain
 3. Navigate to **DNS** section
 
-### 2. Create DNS-AID Records
+### 2. Create DNS-AID Records (CORRECTED with PORT)
 
 #### Record A: General Agent Discovery (Index)
+
+**ServiceMode SVCB with explicit port:**
 
 ```
 Type:        SVCB
 Name:        _index._agents
 Priority:    1
 Target:      apartca.org
-Parameters:  alpn=h2,h3
+Parameters:  alpn=h2,h3 port=443
 TTL:         3600
 Proxy:       DNS only
 ```
 
-**What it does**: Tells agents where to find general discovery information about your organization.
+**What it does**: Tells agents where to find general discovery information about your organization on port 443 (HTTPS).
 
 #### Record B: Agent-to-Agent Communication
+
+**ServiceMode SVCB with explicit port:**
 
 ```
 Type:        SVCB
 Name:        _a2a._agents
 Priority:    1
 Target:      apartca.org
-Parameters:  alpn=h2,h3
+Parameters:  alpn=h2,h3 port=443
 TTL:         3600
 Proxy:       DNS only
 ```
 
-**What it does**: Provides a secure endpoint for agents to communicate with each other about your services.
+**What it does**: Provides a secure endpoint for agents to communicate with each other on port 443 with ALPN negotiation.
 
-### 3. Enable DNSSEC
+### 3. Alternative: HTTPS Records
+
+If SVCB is not yet widely supported, you can use HTTPS records instead:
+
+```
+Type:        HTTPS
+Name:        _agents
+Priority:    1
+Target:      apartca.org
+Parameters:  alpn=h2,h3 port=443
+TTL:         3600
+Proxy:       DNS only
+```
+
+### 4. Enable DNSSEC
 
 In Cloudflare dashboard:
 
@@ -60,7 +78,7 @@ In Cloudflare dashboard:
 
 **Why DNSSEC?** Ensures agents receive authenticated (non-spoofed) discovery data.
 
-### 4. Verify Configuration
+### 5. Verify Configuration
 
 Test your DNS-AID records with these commands:
 
@@ -76,12 +94,16 @@ dig apartca.org +dnssec
 
 # Check DNSSEC validation status
 delv @8.8.8.8 apartca.org
+
+# Decode SVCB response
+dig _index._agents.apartca.org SVCB +multiline
 ```
 
 Expected output should show:
-- SVCB records with `alpn` parameters
+- SVCB records with `alpn` and `port` parameters
 - DNSSEC signatures (RRSIG records)
 - Ad flag (authenticated data)
+- Example: `apartca.org. 3600 IN SVCB 1 apartca.org alpn=h2,h3 port=443`
 
 ## HTTP-Based Discovery (Fallback)
 
@@ -116,28 +138,58 @@ Human-readable guide for understanding and maintaining DNS-AID.
 
 ## DNS Record Parameters Explained
 
+### `port` (REQUIRED in ServiceMode SVCB)
+- **443** = HTTPS (standard)
+- **80** = HTTP (not recommended)
+- **Custom** = Your application port
+- Must be included in ServiceMode SVCB records per RFC 9460
+
 ### `alpn` (Application Layer Protocol)
 - `h2` = HTTP/2
 - `h3` = HTTP/3 (QUIC)
+- `http/1.1` = HTTP/1.1 (fallback)
 - Tells agents which protocols you support
 
 ### `ech` (Encrypted Client Hello)
 - Optional parameter for encrypted SNI
 - Enhances privacy for agent requests
 
-### Priority
+### Priority (in SVCB/HTTPS records)
 - Lower numbers = higher priority
 - Set to `1` for immediate selection
+
+## Common Issues & Solutions
+
+### "SVCB ServiceMode record is missing port"
+**Solution**: Add `port=443` to your SVCB record parameters
+
+```
+❌ WRONG:  alpn=h2,h3
+✅ CORRECT: alpn=h2,h3 port=443
+```
+
+### DNSSEC validation failing
+- Check DS records are published at your registrar
+- Verify DNSSEC status: `delv @8.8.8.8 apartca.org`
+- Wait 24-48 hours for full propagation
+
+### Agents not discovering your domain
+- Ensure `port` parameter is present in SVCB records
+- Verify both `_index._agents` and `_a2a._agents` records exist
+- Check `.well-known/ai-discoverability.json` is valid JSON
+- Test with: `https://isitagentready.com`
 
 ## Testing with External Tools
 
 - **[DNS Checker](https://dnschecker.org)** - Verify DNS propagation
 - **[MXToolbox](https://mxtoolbox.com)** - DNSSEC validation
 - **[IsItAgentReady](https://isitagentready.com)** - Agent discoverability score
+- **[Cloudflare DNS Test](https://www.cloudflare.com/en-gb/learning/dns/dns-security/)** - Validate DNSSEC
 
 ## Security Best Practices
 
 ✅ **DO:**
+- Include `port=443` in all ServiceMode SVCB records
 - Keep DNSSEC enabled
 - Monitor DNS changes in Cloudflare audit logs
 - Use TTL of 3600 or higher
@@ -145,6 +197,7 @@ Human-readable guide for understanding and maintaining DNS-AID.
 - Document all DNS modifications
 
 ❌ **DON'T:**
+- Omit the `port` parameter (causes validation errors)
 - Disable DNSSEC (breaks agent validation)
 - Set TTL below 300 seconds
 - Mix DNS only and proxied records
@@ -154,27 +207,10 @@ Human-readable guide for understanding and maintaining DNS-AID.
 
 | Standard | Purpose | Link |
 |----------|---------|------|
-| RFC 8288 | Web Linking | https://tools.ietf.org/html/rfc8288 |
 | RFC 9460 | SVCB/HTTPS RRs | https://www.rfc-editor.org/rfc/rfc9460 |
+| RFC 8288 | Web Linking | https://tools.ietf.org/html/rfc8288 |
 | RFC 4033-4035 | DNSSEC | https://tools.ietf.org/html/rfc4033 |
 | DNS-AID Draft | AI Discovery | https://datatracker.ietf.org/doc/draft-mozleywilliams-dnsop-dnsaid/ |
-
-## Troubleshooting
-
-### Record not showing in DNS lookups
-- Wait 5-10 minutes for propagation
-- Clear local DNS cache: `sudo systemctl restart systemd-resolved`
-- Verify record was saved in Cloudflare
-
-### DNSSEC validation failing
-- Check DS records are published by your registrar
-- Verify DNSSEC status: `delv @8.8.8.8 apartca.org`
-- Wait 24-48 hours for full propagation
-
-### Agents not discovering your domain
-- Ensure both `_index._agents` and `_a2a._agents` records exist
-- Verify HTTP fallback endpoints are accessible
-- Check `.well-known/ai-discoverability.json` is valid JSON
 
 ## Support & Questions
 
@@ -182,11 +218,13 @@ Human-readable guide for understanding and maintaining DNS-AID.
 - **GitHub Repository**: https://github.com/apartca/apartca
 - **Issue Tracker**: https://github.com/apartca/apartca/issues
 - **Specification Discussions**: https://datatracker.ietf.org/doc/draft-mozleywilliams-dnsop-dnsaid/
+- **Agent Readiness Score**: https://isitagentready.com
 
 ## Version History
 
 | Date | Version | Changes |
 |------|---------|---------|
+| 2026-05-31 | 1.1 | **CRITICAL FIX**: Added `port=443` parameter to ServiceMode SVCB records |
 | 2026-05-31 | 1.0 | Initial DNS-AID setup guide |
 
 ---
@@ -194,4 +232,5 @@ Human-readable guide for understanding and maintaining DNS-AID.
 **Last Updated**: 2026-05-31  
 **Domain**: apartca.org  
 **DNSSEC Status**: ✅ Enabled  
-**Agent Discovery**: ✅ Ready
+**Agent Discovery**: ✅ Ready (with corrected SVCB records)  
+**RFC 9460 Compliance**: ✅ ServiceMode port parameter included

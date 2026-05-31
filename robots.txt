@@ -10,5 +10,5 @@ Allow: /
 User-agent: Bingbot
 Allow: /
 
-# Sitemap location (update with your actual sitemap URL)
-# Sitemap: https://apartca.github.io/sitemap.xml
+# Sitemap location
+Sitemap: https://apartca.github.io/sitemap.xml

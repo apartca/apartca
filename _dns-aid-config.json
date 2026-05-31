@@ -1,5 +1,5 @@
 {
-  "version": "1.0",
+  "version": "1.1",
   "domain": "apartca.org",
   "organization": "A PART C@?",
   "description": "A PART C@? se réinvente et ouvre un nouveau chapitre.",
@@ -12,8 +12,10 @@
       "target": "apartca.org",
       "parameters": {
         "alpn": ["h2", "h3"],
+        "port": 443,
         "purpose": "General agent discovery and capability negotiation"
       },
+      "rfc9460_compliant": true,
       "status": "active"
     },
     {
@@ -23,9 +25,10 @@
       "target": "apartca.org",
       "parameters": {
         "alpn": ["h2", "h3"],
-        "ech": "optional",
+        "port": 443,
         "purpose": "Agent-to-agent communication and secure service discovery"
       },
+      "rfc9460_compliant": true,
       "status": "active"
     }
   ],
@@ -48,8 +51,10 @@
   "standards_compliance": {
     "dns_aid": "draft-mozleywilliams-dnsop-dnsaid",
     "svcb_https": "RFC 9460",
-    "dnssec": "RFC 4033, RFC 4034, RFC 4035"
+    "dnssec": "RFC 4033, RFC 4034, RFC 4035",
+    "service_mode_port": "REQUIRED per RFC 9460 Section 2.1"
   },
   "contact": "hello@apartca.org",
-  "last_updated": "2026-05-31"
+  "last_updated": "2026-05-31",
+  "critical_fix_v1_1": "Added port=443 to ServiceMode SVCB records (RFC 9460 requirement)"
 }

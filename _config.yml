@@ -1,0 +1,16 @@
+title: A PART C@?
+description: A PART C@? se réinvente et ouvre un nouveau chapitre.
+url: https://apartca.org
+lang: fr
+
+# Enable Jekyll
+markdown: kramdown
+theme: null
+
+# Custom HTTP headers for agent discovery (RFC 8288)
+# These headers advertise resources to agents and crawlers
+plugins:
+  - jekyll-relative-links
+
+# Additional headers configuration
+# For GitHub Pages, headers can be added via meta tags as fallback

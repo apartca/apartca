@@ -1,0 +1,59 @@
+{
+  "version": "1.0",
+  "organization": {
+    "name": "A PART C@?",
+    "domain": "apartca.org",
+    "language": "fr",
+    "description": "A PART C@? se réinvente et ouvre un nouveau chapitre.",
+    "mission": "Caritas, Ahimsa, Sympatheia, Ethos"
+  },
+  "agent_discovery": {
+    "enabled": true,
+    "dns_aid": {
+      "enabled": true,
+      "index_record": "_index._agents.apartca.org",
+      "a2a_record": "_a2a._agents.apartca.org",
+      "dnssec_signed": true
+    },
+    "http_endpoints": {
+      "sitemap": "/sitemap.xml",
+      "robots": "/robots.txt",
+      "agent_skills": "/.well-known/agent-skills/"
+    }
+  },
+  "capabilities": [
+    {
+      "name": "Web Presence",
+      "type": "website",
+      "url": "https://apartca.org",
+      "description": "Official homepage with mission statement"
+    },
+    {
+      "name": "AI Agent Discovery",
+      "type": "discovery",
+      "dns_aid": true,
+      "http_based": true,
+      "description": "RFC 8288 and DNS-AID compliant discovery"
+    },
+    {
+      "name": "Contact",
+      "type": "communication",
+      "email": "hello@apartca.org",
+      "method": "Direct contact for inquiries"
+    }
+  ],
+  "standards": [
+    "RFC 8288 - Web Linking",
+    "RFC 9460 - SVCB and HTTPS RRs",
+    "RFC 4033 - DNS DNSSEC",
+    "draft-mozleywilliams-dnsop-dnsaid - DNS for AI Discovery"
+  ],
+  "links": {
+    "homepage": "https://apartca.org",
+    "github": "https://github.com/apartca/apartca",
+    "dns_aid_spec": "https://datatracker.ietf.org/doc/draft-mozleywilliams-dnsop-dnsaid/",
+    "svcb_spec": "https://www.rfc-editor.org/rfc/rfc9460",
+    "agent_ready": "https://isitagentready.com"
+  },
+  "last_updated": "2026-05-31T10:22:00Z"
+}

@@ -1,0 +1,55 @@
+{
+  "version": "1.0",
+  "domain": "apartca.org",
+  "organization": "A PART C@?",
+  "description": "A PART C@? se réinvente et ouvre un nouveau chapitre.",
+  "language": "fr",
+  "dns_aid_records": [
+    {
+      "name": "_index._agents.apartca.org",
+      "type": "SVCB",
+      "priority": 1,
+      "target": "apartca.org",
+      "parameters": {
+        "alpn": ["h2", "h3"],
+        "purpose": "General agent discovery and capability negotiation"
+      },
+      "status": "active"
+    },
+    {
+      "name": "_a2a._agents.apartca.org",
+      "type": "SVCB",
+      "priority": 1,
+      "target": "apartca.org",
+      "parameters": {
+        "alpn": ["h2", "h3"],
+        "ech": "optional",
+        "purpose": "Agent-to-agent communication and secure service discovery"
+      },
+      "status": "active"
+    }
+  ],
+  "dnssec": {
+    "enabled": true,
+    "provider": "Cloudflare",
+    "signed_zone": "apartca.org",
+    "validation": "Resolvers validating DNSSEC will receive authenticated data"
+  },
+  "well_known_endpoints": [
+    {
+      "path": "/.well-known/ai-discoverability.json",
+      "purpose": "AI agent discovery metadata and capabilities"
+    },
+    {
+      "path": "/.well-known/agent-skills/dns-aid/SKILL.md",
+      "purpose": "DNS-AID capability documentation"
+    }
+  ],
+  "standards_compliance": {
+    "dns_aid": "draft-mozleywilliams-dnsop-dnsaid",
+    "svcb_https": "RFC 9460",
+    "dnssec": "RFC 4033, RFC 4034, RFC 4035"
+  },
+  "contact": "hello@apartca.org",
+  "last_updated": "2026-05-31"
+}

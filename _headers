@@ -1,0 +1,32 @@
+/*
+  Link: </sitemap.xml>; rel="sitemap"; type="application/xml"
+  Link: </robots.txt>; rel="alternate"; type="text/plain"
+  Link: </.well-known/ai-discoverability.json>; rel="agent-discovery"; type="application/json"
+  Link: </>; rel="self"; type="text/html"
+  Link: </index.html>; rel="canonical"; type="text/html"
+
+/
+  Link: </sitemap.xml>; rel="sitemap"; type="application/xml"
+  Link: </robots.txt>; rel="alternate"; type="text/plain"
+  Link: </.well-known/ai-discoverability.json>; rel="agent-discovery"; type="application/json"
+  Link: </>; rel="self"; type="text/html"
+  Cache-Control: public, max-age=3600
+
+/index.html
+  Link: </sitemap.xml>; rel="sitemap"; type="application/xml"
+  Link: </robots.txt>; rel="alternate"; type="text/plain"
+  Link: </.well-known/ai-discoverability.json>; rel="agent-discovery"; type="application/json"
+  Link: </>; rel="self"; type="text/html"
+  Cache-Control: public, max-age=3600
+
+/.well-known/*
+  Cache-Control: public, max-age=7200
+  Access-Control-Allow-Origin: *
+
+/robots.txt
+  Content-Type: text/plain; charset=utf-8
+  Cache-Control: public, max-age=86400
+
+/sitemap.xml
+  Content-Type: application/xml; charset=utf-8
+  Cache-Control: public, max-age=86400

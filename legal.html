@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mentions Légales – A Part Ça</title>
+  <meta name="description" content="Mentions légales du site A Part Ça." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #f3f7fb;
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --accent: #0ea5e9;
+      --text: #0f172a;
+      --muted: #64748b;
+      --card-bg: #ffffff;
+      --radius: 18px;
+      --shadow-soft: 0 18px 40px rgba(15, 23, 42, 0.08);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: "Inter", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    main {
+      flex: 1;
+      max-width: 999px;
+      margin: 0 auto;
+      padding: 32px 16px 40px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-soft);
+      padding: 32px 28px 30px;
+      border: 1px solid rgba(148, 163, 184, 0.2);
+    }
+
+    .logo-container {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      margin-bottom: 30px;
+    }
+
+    .logo-container img {
+      width: 240px;
+      height: 240px;
+      object-fit: contain;
+    }
+
+    .title {
+      font-size: clamp(1.6rem, 2vw + 0.8rem, 2.2rem);
+      font-weight: 700;
+      margin-bottom: 24px;
+      text-align: center;
+    }
+
+    .section-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin: 28px 0 10px;
+      color: var(--primary-dark);
+    }
+
+    .section-title:first-of-type {
+      margin-top: 0;
+    }
+
+    .content-text p {
+      margin-bottom: 12px;
+      font-size: 0.96rem;
+    }
+
+    .content-text a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .content-text a:hover {
+      text-decoration: underline;
+    }
+
+    .quote-block {
+      margin-bottom: 20px;
+      padding: 14px 16px;
+      border-left: 3px solid var(--primary);
+      background: #eff6ff;
+      border-radius: 10px;
+    }
+
+    .quote-text { font-size: 0.95rem; font-weight: 500; margin-bottom: 0; }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 20px;
+      font-size: 0.92rem;
+      font-weight: 500;
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    .back-link:hover { text-decoration: underline; }
+
+    .cta {
+      margin-top: 22px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 22px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: #ffffff;
+      font-weight: 600;
+      font-size: 1rem;
+      text-decoration: none;
+      cursor: pointer;
+      transition: transform 0.12s ease, box-shadow 0.12s ease, filter 0.12s ease;
+      box-shadow: 0 14px 28px rgba(37, 99, 235, 0.45);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 18px 36px rgba(37, 99, 235, 0.55);
+      filter: brightness(1.03);
+    }
+
+    .divider {
+      border: none;
+      border-top: 1px solid rgba(148, 163, 184, 0.25);
+      margin: 24px 0;
+    }
+
+    footer {
+      padding: 16px;
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+  <main>
+
+    <section class="card">
+
+      <div class="logo-container">
+        <img src="logo.png" alt="Logo A Part Ça">
+      </div>
+
+      <h1 class="title">Mentions Légales</h1>
+
+      <a class="back-link" href="/">← Retour à l'accueil</a>
+
+      <div class="quote-block">
+        <p class="quote-text">
+          Dernière mise à jour : 1er avril 2026
+        </p>
+      </div>
+
+      <div class="content-text">
+
+        <!-- 1. ÉDITEUR -->
+        <h2 class="section-title">1. Éditeur du site</h2>
+        <p>
+          Le présent site est édité par l'organisation <strong>A PART C@?</strong>.<br>
+          Siège : 111 Avenue Victor Hugo, 75116 Paris, France<br>
+          Adresse e-mail : <a href="mailto:hello@apartca.org">hello@apartca.org</a><br>
+          Directeur de la publication : Moprah Shadowblood
+        </p>
+
+        <hr class="divider">
+
+        <!-- 2. HÉBERGEMENT -->
+        <h2 class="section-title">2. Hébergement</h2>
+        <p>
+          Ce site est hébergé par <strong>GitHub Pages</strong>, un service fourni par GitHub, Inc.<br>
+          Adresse : 88 Colin P. Kelly Jr Street, San Francisco, CA 94107, États-Unis<br>
+          Site web : <a href="https://pages.github.com" target="_blank" rel="noopener">pages.github.com</a>
+        </p>
+        <p>
+          Le réseau de diffusion de contenu (CDN) et la protection du site sont assurés par <strong>Cloudflare, Inc.</strong><br>
+          Adresse : 101 Townsend Street, San Francisco, CA 94107, États-Unis<br>
+          Site web : <a href="https://www.cloudflare.com" target="_blank" rel="noopener">cloudflare.com</a>
+        </p>
+
+        <hr class="divider">
+
+        <!-- 3. PROPRIÉTÉ INTELLECTUELLE -->
+        <h2 class="section-title">3. Propriété intellectuelle</h2>
+        <p>
+          L'ensemble des contenus présents sur ce site (textes, images, logo, mise en page) est la propriété exclusive d'A PART C@? ou fait l'objet d'une autorisation d'utilisation. Toute reproduction, représentation ou diffusion, en tout ou partie, sans autorisation écrite préalable, est interdite et constitue une contrefaçon sanctionnée par le Code de la propriété intellectuelle.
+        </p>
+
+        <hr class="divider">
+
+        <!-- 4. DONNÉES PERSONNELLES ET RGPD -->
+        <h2 class="section-title">4. Protection des données personnelles</h2>
+        <p>
+          A PART C@? s'engage à protéger les données personnelles de ses utilisateurs conformément au Règlement Général sur la Protection des Données (RGPD – Règlement UE 2016/679) et à la loi Informatique et Libertés du 6 janvier 1978 modifiée.
+        </p>
+
+        <h2 class="section-title">4.1 Responsable du traitement</h2>
+        <p>
+          Le responsable du traitement des données est A PART C@?, dont le siège se situe au 111 Avenue Victor Hugo, 75116 Paris, France.
+        </p>
+
+        <h2 class="section-title">4.2 Délégué à la protection des données (DPO)</h2>
+        <p>
+          Le délégué à la protection des données est <strong>Moprah Shadowblood</strong>.<br>
+          Pour toute question relative à vos données personnelles, vous pouvez le contacter à l'adresse : <a href="mailto:dpo@apartca.org">dpo@apartca.org</a>
+        </p>
+
+        <h2 class="section-title">4.3 Données collectées et finalités</h2>
+        <p>
+          Les données susceptibles d'être collectées lors de votre visite sont les suivantes :
+        </p>
+        <p>
+          – <strong>Données de navigation</strong> : adresse IP (anonymisée par Cloudflare), type de navigateur, pages consultées, durée de visite. Ces données sont collectées via Google Analytics (identifiant : G-M51KSQ70FV) à des fins de mesure d'audience et d'amélioration du site.<br>
+          – <strong>Données de contact</strong> : adresse e-mail et informations que vous communiquez volontairement via le formulaire de contact ou l'inscription à la newsletter gérée par Mailchimp (Intuit Inc.).<br>
+          – <strong>Cookies</strong> : le consentement aux cookies est géré par Cookiebot (Cybot A/S). Vous pouvez modifier vos préférences à tout moment via le bandeau de consentement.
+        </p>
+
+        <h2 class="section-title">4.4 Base légale des traitements</h2>
+        <p>
+          Les traitements de données reposent sur votre consentement (article 6.1.a du RGPD) pour les cookies et la newsletter, et sur l'intérêt légitime d'A PART C@? (article 6.1.f) pour la mesure d'audience et le bon fonctionnement du site.
+        </p>
+
+        <h2 class="section-title">4.5 Durée de conservation</h2>
+        <p>
+          Les données de navigation sont conservées pendant 14 mois maximum conformément aux recommandations de la CNIL. Les données de contact liées à la newsletter sont conservées jusqu'à votre désinscription. Les données transmises via le formulaire de contact sont conservées le temps nécessaire au traitement de votre demande, puis supprimées dans un délai de 3 ans.
+        </p>
+
+        <h2 class="section-title">4.6 Sous-traitants et transferts de données</h2>
+        <p>
+          Certaines données peuvent être transmises aux sous-traitants suivants, dans le cadre des finalités décrites ci-dessus :
+        </p>
+        <p>
+          – <strong>GitHub, Inc.</strong> (États-Unis) – hébergement du site<br>
+          – <strong>Cloudflare, Inc.</strong> (États-Unis) – CDN, sécurité et performance<br>
+          – <strong>Google LLC</strong> (États-Unis) – mesure d'audience (Google Analytics)<br>
+          – <strong>Intuit Inc. / Mailchimp</strong> (États-Unis) – gestion de la newsletter<br>
+          – <strong>Cybot A/S</strong> (Danemark) – gestion du consentement cookies (Cookiebot)
+        </p>
+        <p>
+          Les transferts vers les États-Unis sont encadrés par le EU-U.S. Data Privacy Framework ou, à défaut, par des clauses contractuelles types approuvées par la Commission européenne.
+        </p>
+
+        <h2 class="section-title">4.7 Vos droits</h2>
+        <p>
+          Conformément au RGPD, vous disposez des droits suivants sur vos données personnelles : droit d'accès, de rectification, d'effacement, de limitation du traitement, de portabilité et d'opposition. Vous pouvez également retirer votre consentement à tout moment.
+        </p>
+        <p>
+          Pour exercer ces droits, adressez votre demande à : <a href="mailto:privacy@apartca.org">privacy@apartca.org</a>
+        </p>
+        <p>
+          En cas de différend, vous avez le droit d'introduire une réclamation auprès de la CNIL (Commission Nationale de l'Informatique et des Libertés) : <a href="https://www.cnil.fr" target="_blank" rel="noopener">www.cnil.fr</a>
+        </p>
+
+        <hr class="divider">
+
+        <!-- 5. COOKIES -->
+        <h2 class="section-title">5. Cookies</h2>
+        <p>
+          Ce site utilise des cookies strictement nécessaires au fonctionnement du site ainsi que des cookies analytiques (Google Analytics) soumis à votre consentement. La gestion du consentement est assurée par Cookiebot. Vous pouvez consulter et modifier vos préférences à tout moment en cliquant sur le lien « Gérer les cookies » en bas de page ou via le bandeau de consentement.
+        </p>
+
+        <hr class="divider">
+
+        <!-- 6. RESPONSABILITÉ -->
+        <h2 class="section-title">6. Limitation de responsabilité</h2>
+        <p>
+          A PART C@? s'efforce d'assurer l'exactitude des informations diffusées sur ce site, mais ne saurait être tenue responsable des erreurs, omissions ou résultats obtenus à la suite de l'utilisation de ces informations. L'accès au site peut être interrompu à tout moment pour des raisons de maintenance ou de force majeure.
+        </p>
+
+        <hr class="divider">
+
+        <!-- 7. LIENS EXTERNES -->
+        <h2 class="section-title">7. Liens externes</h2>
+        <p>
+          Ce site peut contenir des liens vers des sites tiers. A PART C@? n'exerce aucun contrôle sur ces sites et décline toute responsabilité quant à leur contenu ou leurs pratiques en matière de protection des données.
+        </p>
+
+        <hr class="divider">
+
+        <!-- 8. DROIT APPLICABLE -->
+        <h2 class="section-title">8. Droit applicable et juridiction</h2>
+        <p>
+          Les présentes mentions légales sont régies par le droit français. En cas de litige, et à défaut de résolution amiable, les tribunaux compétents de Paris seront seuls compétents.
+        </p>
+
+        <hr class="divider">
+
+        <div class="cta">
+          <a class="btn-primary" href="mailto:dpo@apartca.org">
+            Contacter le DPO
+          </a>
+          <a class="btn-primary" href="/" style="background: linear-gradient(135deg, var(--accent), var(--primary)); box-shadow: 0 14px 28px rgba(14, 165, 233, 0.4);">
+            Retour à l'accueil
+          </a>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="year"></span> A PART C@? – Tous droits réservés.
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-M51KSQ70FV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-M51KSQ70FV');
+  </script>
+  <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="242b5f8b-5fb5-4cb8-aa78-a817ddd34ae9" type="text/javascript" async></script>
+</body>
+</html>

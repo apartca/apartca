@@ -14,7 +14,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
+ 
   <style>
     :root {
       --bg: #f3f7fb;
@@ -27,9 +27,9 @@
       --radius: 18px;
       --shadow-soft: 0 18px 40px rgba(15, 23, 42, 0.08);
     }
-
+ 
     * { box-sizing: border-box; margin: 0; padding: 0; }
-
+ 
     body {
       font-family: "Inter", sans-serif;
       background: var(--bg);
@@ -39,14 +39,14 @@
       display: flex;
       flex-direction: column;
     }
-
+ 
     main {
       flex: 1;
       max-width: 999px;
       margin: 0 auto;
       padding: 32px 16px 40px;
     }
-
+ 
     .card {
       background: var(--card-bg);
       border-radius: var(--radius);
@@ -54,7 +54,7 @@
       padding: 32px 28px 30px;
       border: 1px solid rgba(148, 163, 184, 0.2);
     }
-
+ 
     /* LOGO 240px */
     .logo-container {
       width: 100%;
@@ -62,20 +62,20 @@
       justify-content: center;
       margin-bottom: 30px;
     }
-
+ 
     .logo-container img {
       width: 240px;
       height: 240px;
       object-fit: contain;
     }
-
+ 
     .title {
       font-size: clamp(1.6rem, 2vw + 0.8rem, 2.2rem);
       font-weight: 700;
       margin-bottom: 24px;
       text-align: center;
     }
-
+ 
     .quote-block {
       margin-bottom: 20px;
       padding: 14px 16px;
@@ -83,15 +83,15 @@
       background: #eff6ff;
       border-radius: 10px;
     }
-
+ 
     .quote-text { font-size: 0.95rem; font-weight: 500; margin-bottom: 4px; }
     .quote-author { font-size: 0.9rem; color: var(--muted); }
-
+ 
     .content-text p {
       margin-bottom: 12px;
       font-size: 0.96rem;
     }
-
+ 
     .cta {
       margin-top: 22px;
       display: flex;
@@ -99,7 +99,7 @@
       gap: 10px;
       align-items: center;
     }
-
+ 
     .btn-primary {
       display: inline-flex;
       align-items: center;
@@ -115,51 +115,61 @@
       transition: transform 0.12s ease, box-shadow 0.12s ease, filter 0.12s ease;
       box-shadow: 0 14px 28px rgba(37, 99, 235, 0.45);
     }
-
+ 
     .btn-primary:hover {
       transform: translateY(-1px);
       box-shadow: 0 18px 36px rgba(37, 99, 235, 0.55);
       filter: brightness(1.03);
     }
-
+ 
     .cta-note {
       font-size: 0.85rem;
       color: var(--muted);
     }
-
+ 
     .cta-note span {
       font-weight: 500;
       color: var(--primary-dark);
     }
-
+ 
     footer {
       padding: 16px;
       text-align: center;
       font-size: 0.8rem;
       color: var(--muted);
     }
+ 
+    footer a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 500;
+    }
+ 
+    footer a:hover {
+      text-decoration: underline;
+    }
   </style>
 </head>
 <body>
   <main>
-
+ 
     <section class="card">
-
+ 
       <!-- LOGO PNG 240px -->
       <div class="logo-container">
         <img src="logo.png" alt="Logo A Part Ça">
       </div>
-
+ 
       <!-- NOUVEAU TITRE EN 3 MOTS -->
       <h1 class="title">Caritas, Ahimsa, Sympatheia, Ethos</h1>
-
+ 
       <div class="quote-block">
         <p class="quote-text">
           « J'ai décidé d'opter pour l'amour, car la haine est un fardeau trop lourd à porter. »
         </p>
         <p class="quote-author">Martin Luther King</p>
       </div>
-
+ 
       <div class="content-text">
         <p>
           Au sein d' "A PART C@?", nous avons fait le choix de suivre une voie claire : <br/>
@@ -182,7 +192,7 @@
           une communauté plus juste, plus solidaire et plus lumineuse. <br/>
         </p>
       </div>
-
+ 
       <div class="cta">
         <a class="btn-primary" href="mailto:hello@apartca.org">
           Nous rejoindre
@@ -193,11 +203,11 @@
       </div>
     </section>
   </main>
-
+ 
   <footer>
-    © <span id="year"></span> A PART C@? – Tous droits réservés.
+    © <span id="year"></span> A PART C@? – Tous droits réservés. · <a href="legal.html">Mentions légales</a>
   </footer>
-
+ 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
